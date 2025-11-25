@@ -1,28 +1,40 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext();
 
-function ThemeProvider({ children }) {
-  // Load theme from localStorage on startup
+export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "light";
+    // 1️⃣ First check localStorage
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved;
+
+    // 2️⃣ Otherwise detect device theme
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    return prefersDark ? "dark" : "light";
   });
 
-  //  Save theme to localStorage whenever it changes
+  // 3️⃣ Save theme + apply to <body>
   useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-    document.body.className = theme; // Apply class to body
   }, [theme]);
 
-  // Toggle theme
-  function toggleTheme() {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  }
+  // 4️⃣ Listen for system theme changes
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handler = () => {
+      setTheme(media.matches ? "dark" : "light");
+    };
+
+    media.addEventListener("change", handler);
+
+    return () => media.removeEventListener("change", handler);
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
   );
 }
-export default ThemeProvider;

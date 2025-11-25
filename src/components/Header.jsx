@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { ThemeContext } from "../context/ThemeContext";
-import ThemeToggleSlider from "./ThemeToggleSlider";
 
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -21,8 +20,6 @@ function Header() {
             🛒 Cart <span className="badge">{totalItems}</span>
           </Link>
         </nav>
-        {/* Theme Toggle Btn */}
-        <ThemeToggleSlider />
       </div>
     </header>
   );
