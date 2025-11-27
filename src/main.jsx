@@ -5,6 +5,7 @@ import App from "./App";
 import { CartProvider } from "./context/CartContext";
 import "./App.css";
 import { ThemeProvider } from "./context/ThemeContext";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>

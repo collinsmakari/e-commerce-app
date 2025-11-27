@@ -1,0 +1,41 @@
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  height: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 5px;
+  z-index: 3;
+  transition: 0.3s ease;
+}
+.badge {
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  font-size: 12px;
+}
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #333;
+}
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: #118541;
+  font-size: 18px;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+}
+.cart-btn {
+  background: transparent;
+  border: transparent;
+}

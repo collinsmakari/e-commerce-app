@@ -4,11 +4,11 @@ import ProductCard from "../components/ProductCard";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="home">
+      <h1 className="home-title">Products</h1>
       <div className="product-grid">
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} />
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>

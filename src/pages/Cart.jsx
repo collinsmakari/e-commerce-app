@@ -8,7 +8,7 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div>
+      <div className="your-cart">
         <h2>Your Cart</h2>
         <p>No items in cart.</p>
         <Link to="/">Back to products</Link>
@@ -17,7 +17,7 @@ export default function Cart() {
   }
 
   return (
-    <div>
+    <div className="your-cart">
       <h2>Your Cart ({totalItems})</h2>
 
       <div className="cart-list">

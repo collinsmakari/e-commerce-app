@@ -11,10 +11,10 @@ export default function ProductCard({ product }) {
         <img src={product.image} alt={product.title} className="product-img" />
       </Link>
 
-      <div className="product-body">
-        <h3>{product.title}</h3>
-        <p className="price">${product.price.toFixed(2)}</p>
-        <p className="desc">{product.description}</p>
+      <div className="productcard-body">
+        <h3 className="productcard-name">{product.name}</h3>
+        <p className="productcard-price">Ksh.{product.price.toFixed(2)}</p>
+        <p className="productcard-desc">{product.description}</p>
 
         <div className="actions">
           <button onClick={() => addToCart(product)}>Add to cart</button>
