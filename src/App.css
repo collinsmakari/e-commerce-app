@@ -83,7 +83,7 @@ nav a {
   background: black;
   color: #fff;
   font-size: 0.8rem;
-  padding: 3px 6px;
+  padding: 2px 6px;
   border-radius: 50%;
 }
 .home {
@@ -252,4 +252,79 @@ body {
   background: var(--bg);
   color: var(--text);
   transition: background 0.3s ease, color 0.3s ease;
+}
+/* FOOTER CSS */
+.footer {
+  background: #111;
+  color: #ccc;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-section h2,
+.footer-section h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+.quick-link {
+  text-decoration: none;
+  color: #ccc;
+}
+.quick-link:hover {
+  color: white;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.footer-section ul li:hover {
+  color: white;
+}
+
+.socials span {
+  display: inline-block;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+span a {
+  list-style: none;
+  text-decoration: none;
+  color: #ccc;
+  font-size: 1.5rem;
+}
+
+span a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #333;
+  font-size: 14px;
+  color: #999;
 }

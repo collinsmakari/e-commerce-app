@@ -7,7 +7,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import { ThemeContext } from "./context/ThemeContext";
 import { useContext, useEffect } from "react";
-import products from "./data/products";
+import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="app">
+      <ScrollToTop />
       <Header />
       <main className="container">
         <Routes>
@@ -27,6 +29,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
