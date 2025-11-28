@@ -4,14 +4,19 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
 import { ThemeContext } from "./context/ThemeContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
 
 function App() {
   const { theme } = useContext(ThemeContext);
+  const [showCart, setShowCart] = useState(false);
+
+  const closeCart = () => {
+    setShowCart(false);
+  };
 
   useEffect(() => {
     document.body.className = theme;
@@ -21,15 +26,19 @@ function App() {
   return (
     <div className="app">
       <ScrollToTop />
-      <Header />
+      <Header showCart={showCart} setShowCart={setShowCart} />
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
-      <Footer />
+
+      {/* Show popup cart */}
+      {showCart && <Cart onClose={closeCart} />}
+
+      {/* Hide footer when cart popup is active */}
+      {!showCart && <Footer />}
     </div>
   );
 }
